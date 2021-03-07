@@ -1,3 +1,4 @@
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -178,3 +179,4 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
