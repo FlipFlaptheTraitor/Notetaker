@@ -1,7 +1,7 @@
 # Note Taker 
 
   ## Description 
-
+A note taking program that uses javascript on the back end to store notes into a database file.
   
   
   ## Table of Contents
@@ -17,12 +17,12 @@
   * [Tests](#tests)
   
   ## Installation
-  
+  This program can be cloned from the repository. After cloning runing the following lines in the command prompt npm init, npm install, and npm install express. the program can then be run by typeing the following command into the prompt node app.
 
   
   
   ## Usage 
-  ![](https://media.giphy.com/media/aLqMp0xfzzI9qqjuWW/giphy.gif)
+![Notetaker](name-of-giphy.gif)
 
   ## Credits
   
