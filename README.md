@@ -22,7 +22,7 @@ A note taking program that uses javascript on the back end to store notes into a
   
   
   ## Usage 
-![Notetaker](name-of-giphy.gif)
+![Notetaker](https://media.giphy.com/media/MhuvlT3SwixiYSe5V0/giphy.gif)
 
   ## Credits
   
