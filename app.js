@@ -1,13 +1,11 @@
-var express = require("express");
-var path = require("path");
-var fs = require("fs")
+const express = require("express");
+const path = require("path");
+const fs = require("fs")
 
 // Sets up the Express App
-var app = express();
-var PORT = process.env.PORT || 3001;
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
+const app = express();
+const PORT = process.env.PORT || 3001;
+
 
 // HTML Routes
 
@@ -21,19 +19,11 @@ app.get("/", function (req, res) {
   
   });
   
-  fs.readFile("db/db.json","utf8", (err, data) => {
+  fs.readFile(__dirname+"/db/db.json","utf8", (err, data) => {
     if (err) throw err;
     
     var notes = JSON.parse(data);
 
-    // Setup the route
-    app.get("/api/notes", function(req, res) {
-        res.json(notes);
-    });
-
-    // Setup the /api/notes post route
-   
-    // grabs note by id
     app.get("/api/notes/:id", function(req,res) {
         res.json(notes[req.params.id]);
     });
@@ -48,14 +38,20 @@ app.get("/", function (req, res) {
 
     //updates db
     function updateDb() {
-        fs.writeFile("db/db.json",JSON.stringify(notes,'\t'),err => {
+        fs.writeFile(__dirname+"/db/db.json",JSON.stringify(notes),err => {
             if (err) throw err;
             return true;
         });
     }
 
 });
-  
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+
   app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
   });  
+
+ 
