@@ -1,13 +1,14 @@
-const express = require("express");
-const path = require("path");
-const fs = require("fs")
+const fs = require('fs');
+const path = require('path');
 
-// Sets up the Express App
-const app = express();
-const PORT = process.env.PORT || 3001;
+module.exports = app => {
 
+    
+    fs.readFile("db/db.json","utf8", (err, data) => {
 
-// HTML Routes
+        if (err) throw err;
+
+        var notes = JSON.parse(data);
 
 // Basic route
 app.get("/", function (req, res) {
@@ -23,19 +24,19 @@ app.get("/", function (req, res) {
     if (err) throw err;
     
     var notes = JSON.parse(data);
-
+  
     app.get("/api/notes/:id", function(req,res) {
         res.json(notes[req.params.id]);
     });
-
+  
     // Deletes note
-    app.delete("/api/notes/:id", function(req, res) {
+    app.delete("/api/notes", function(req, res) {
         notes.splice(req.params.id, 1);
         updateDb();
         console.log("Deleted note with id "+req.params.id);
     });
-
-
+  
+  
     //updates db
     function updateDb() {
         fs.writeFile(__dirname+"/db/db.json",JSON.stringify(notes),err => {
@@ -43,15 +44,7 @@ app.get("/", function (req, res) {
             return true;
         });
     }
-
-});
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-
-  app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
-  });  
-
- 
+  
+  });
+  
+}
