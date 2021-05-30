@@ -23,7 +23,7 @@ A note taking program that uses javascript on the back end to store notes into a
   
   ## Usage 
 ![Notetaker](https://media.giphy.com/media/50fiBtRPfqBe4xFgYQ/giphy.gif)
-Live deployment: https://flipflapthetraitor.github.io/Notetaker/
+Live deployment: https://pure-fortress-16647.herokuapp.com/
 
   ## Credits
   
